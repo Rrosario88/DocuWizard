@@ -69,20 +69,6 @@ export function Header({ userMembership }: HeaderProps) {
             ))}
           </div>
           <div className="hidden lg:flex lg:flex-1 lg:justify-end lg:gap-x-4">
-            {mounted && (
-              <Button
-                variant="ghost"
-                size="icon"
-                onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-                aria-label="Toggle theme"
-              >
-                {theme === "dark" ? (
-                  <Sun className="h-5 w-5" />
-                ) : (
-                  <Moon className="h-5 w-5" />
-                )}
-              </Button>
-            )}
             <SignedOut>
               <WizardButton variant="ghost" asChild>
                 <Link href="/login">Enter the Realm</Link>
@@ -153,23 +139,6 @@ export function Header({ userMembership }: HeaderProps) {
                   ))}
                 </div>
                 <div className="space-y-3 py-6">
-                  {mounted && (
-                    <Button
-                      variant="outline"
-                      className="w-full justify-start"
-                      onClick={() => {
-                        setTheme(theme === "dark" ? "light" : "dark")
-                        setMobileMenuOpen(false)
-                      }}
-                    >
-                      {theme === "dark" ? (
-                        <Sun className="mr-2 h-4 w-4" />
-                      ) : (
-                        <Moon className="mr-2 h-4 w-4" />
-                      )}
-                      {theme === "dark" ? "Light Mode" : "Dark Mode"}
-                    </Button>
-                  )}
                   <SignedOut>
                     <WizardButton variant="parchment" className="w-full" asChild>
                       <Link
