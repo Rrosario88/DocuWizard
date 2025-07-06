@@ -6,8 +6,8 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-cinzel);
+  --font-mono: var(--font-crimson);
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -83,13 +83,24 @@
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
   
+  /* Medieval Wizard Brand Colors */
+  --wizard-primary: oklch(0.522 0.223 262.881); /* Deep violet #7c3aed */
+  --wizard-primary-dark: oklch(0.475 0.196 264.798); /* Darker violet #5b21b6 */
+  --wizard-primary-light: oklch(0.598 0.217 263.827); /* Lighter violet #a855f7 */
+  --wizard-gold: oklch(0.661 0.238 351.367); /* Medieval gold #fbbf24 */
+  --wizard-silver: oklch(0.922 0 0); /* Silver accents #e5e7eb */
+  --wizard-parchment: oklch(0.97 0.05 85); /* Old parchment #fef3c7 */
+  --wizard-ink: oklch(0.145 0 0); /* Dark ink #1f2937 */
+  --wizard-stone: oklch(0.556 0 0); /* Stone gray #6b7280 */
+  --wizard-shadow: oklch(0.269 0 0); /* Deep shadow #374151 */
+  
   /* Brand Colors */
-  --brand-primary: oklch(0.522 0.223 262.881); /* indigo-600 */
-  --brand-primary-hover: oklch(0.475 0.196 264.798); /* indigo-700 */
+  --brand-primary: var(--wizard-primary);
+  --brand-primary-hover: var(--wizard-primary-dark);
   --brand-primary-foreground: oklch(1 0 0);
-  --brand-secondary: oklch(0.531 0.255 286.623); /* purple-600 */
-  --brand-secondary-hover: oklch(0.474 0.215 286.03); /* purple-700 */
-  --brand-accent: oklch(0.661 0.238 351.367); /* pink-600 */
+  --brand-secondary: var(--wizard-primary-light);
+  --brand-secondary-hover: var(--wizard-primary);
+  --brand-accent: var(--wizard-gold);
 }
 
 .dark {
@@ -125,13 +136,20 @@
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.556 0 0);
   
+  /* Medieval Wizard Brand Colors - Dark Mode */
+  --wizard-primary: oklch(0.598 0.217 263.827); /* Lighter violet for dark mode */
+  --wizard-primary-dark: oklch(0.648 0.194 265.755); /* Even lighter for hover */
+  --wizard-primary-light: oklch(0.678 0.234 285.751); /* Lightest violet */
+  --wizard-gold: oklch(0.717 0.23 349.761); /* Brighter gold for dark mode */
+  --wizard-parchment: oklch(0.269 0.05 85); /* Darker parchment */
+  
   /* Brand Colors - Dark Mode */
-  --brand-primary: oklch(0.598 0.217 263.827); /* indigo-400 */
-  --brand-primary-hover: oklch(0.648 0.194 265.755); /* indigo-300 */
+  --brand-primary: var(--wizard-primary);
+  --brand-primary-hover: var(--wizard-primary-dark);
   --brand-primary-foreground: oklch(0.145 0 0);
-  --brand-secondary: oklch(0.636 0.265 287.621); /* purple-400 */
-  --brand-secondary-hover: oklch(0.678 0.234 285.751); /* purple-300 */
-  --brand-accent: oklch(0.717 0.23 349.761); /* pink-400 */
+  --brand-secondary: var(--wizard-primary-light);
+  --brand-secondary-hover: var(--wizard-primary-dark);
+  --brand-accent: var(--wizard-gold);
 }
 
 @layer base {
@@ -140,6 +158,87 @@
   }
   body {
     @apply bg-background text-foreground;
-    font-family: var(--font-geist-sans), system-ui, sans-serif;
+    font-family: var(--font-crimson), serif;
+  }
+  
+  /* Medieval Wizard Typography */
+  .wizard-title {
+    font-family: var(--font-cinzel), serif;
+    font-weight: 600;
+    background: linear-gradient(135deg, var(--wizard-primary), var(--wizard-gold));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .wizard-heading {
+    font-family: var(--font-cinzel), serif;
+    font-weight: 500;
+  }
+  
+  .wizard-body {
+    font-family: var(--font-crimson), serif;
+  }
+  
+  /* Medieval Wizard Effects */
+  .parchment-texture {
+    background-image: 
+      radial-gradient(circle at 25% 25%, var(--wizard-parchment) 0%, transparent 50%),
+      radial-gradient(circle at 75% 75%, var(--wizard-gold) 0%, transparent 50%);
+    background-size: 100px 100px;
+  }
+  
+  .wizard-glow {
+    box-shadow: 
+      0 0 20px oklch(0.522 0.223 262.881 / 0.3),
+      0 0 40px oklch(0.522 0.223 262.881 / 0.1),
+      inset 0 1px 0 oklch(1 0 0 / 0.1);
+  }
+  
+  .wizard-gradient {
+    background: linear-gradient(135deg, var(--wizard-primary), var(--wizard-primary-light));
+  }
+  
+  .magic-shimmer {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .magic-shimmer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      oklch(1 0 0 / 0.2),
+      transparent
+    );
+    transition: left 0.5s;
+  }
+  
+  .magic-shimmer:hover::before {
+    left: 100%;
+  }
+  
+  @keyframes sparkle {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.7; transform: scale(1.05); }
+  }
+  
+  .spell-animation {
+    animation: sparkle 2s ease-in-out infinite;
+  }
+  
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+  }
+  
+  .wizard-float {
+    animation: float 3s ease-in-out infinite;
   }
 }

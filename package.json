@@ -1,6 +1,8 @@
 {
-  "name": "mckays-app-template",
-  "version": "2.0.0",
+  "name": "docuwizard",
+  "version": "1.0.0",
+  "description": "AI-powered PDF document analysis with local Ollama models - Transform documents with ancient wisdom & modern AI",
+  "keywords": ["pdf", "ai", "document-analysis", "ollama", "wizard", "medieval", "local-ai"],
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
