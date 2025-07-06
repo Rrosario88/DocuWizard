@@ -1,9 +1,12 @@
 "use client"
 
 import { Button } from "@/components/ui/button"
+import { WizardButton } from "@/components/ui/wizard-button"
+import { WizardLogo } from "@/components/branding/WizardLogo"
 import { SelectCustomer } from "@/db/schema/customers"
 import { SignedIn, SignedOut, UserButton } from "@clerk/nextjs"
-import { Menu, Moon, Sun, X, Sparkles } from "lucide-react"
+import { Menu, Moon, Sun, X } from "lucide-react"
+import { Sparkles } from "@/components/icons/medieval-icons"
 import { useTheme } from "next-themes"
 import Link from "next/link"
 import { useEffect, useState } from "react"
@@ -37,7 +40,7 @@ export function Header({ userMembership }: HeaderProps) {
         >
           <div className="flex lg:flex-1">
             <Link href="/" className="-m-1.5 p-1.5">
-              <span className="text-xl font-bold">Mckay's App Template</span>
+              <WizardLogo size={32} />
             </Link>
           </div>
           <div className="flex lg:hidden">
@@ -79,25 +82,25 @@ export function Header({ userMembership }: HeaderProps) {
               )}
             </Button>
             <SignedOut>
-              <Button variant="ghost" asChild>
-                <Link href="/login">Log in</Link>
-              </Button>
-              <Button asChild>
-                <Link href="/signup">Sign up</Link>
-              </Button>
+              <WizardButton variant="ghost" asChild>
+                <Link href="/login">Enter the Realm</Link>
+              </WizardButton>
+              <WizardButton variant="mystical" asChild>
+                <Link href="/signup">Begin Quest</Link>
+              </WizardButton>
             </SignedOut>
             <SignedIn>
               {userMembership === "pro" ? (
-                <Button asChild>
-                  <Link href="/dashboard">Dashboard</Link>
-                </Button>
+                <WizardButton variant="mystical" asChild>
+                  <Link href="/dashboard">Your Grimoire</Link>
+                </WizardButton>
               ) : (
-                <Button asChild className="gap-2">
+                <WizardButton variant="gold" asChild className="gap-2">
                   <Link href="/#pricing">
                     <Sparkles className="h-4 w-4" />
-                    Upgrade
+                    Become Master Wizard
                   </Link>
-                </Button>
+                </WizardButton>
               )}
               <UserButton />
             </SignedIn>
@@ -122,7 +125,7 @@ export function Header({ userMembership }: HeaderProps) {
                 className="-m-1.5 p-1.5"
                 onClick={() => setMobileMenuOpen(false)}
               >
-                <span className="text-xl font-bold">Takeoff</span>
+                <WizardLogo size={28} />
               </Link>
               <button
                 type="button"
@@ -164,43 +167,43 @@ export function Header({ userMembership }: HeaderProps) {
                     {theme === "dark" ? "Light Mode" : "Dark Mode"}
                   </Button>
                   <SignedOut>
-                    <Button variant="outline" className="w-full" asChild>
+                    <WizardButton variant="parchment" className="w-full" asChild>
                       <Link
                         href="/login"
                         onClick={() => setMobileMenuOpen(false)}
                       >
-                        Log in
+                        Enter the Realm
                       </Link>
-                    </Button>
-                    <Button className="w-full" asChild>
+                    </WizardButton>
+                    <WizardButton variant="mystical" className="w-full" asChild>
                       <Link
                         href="/signup"
                         onClick={() => setMobileMenuOpen(false)}
                       >
-                        Sign up
+                        Begin Quest
                       </Link>
-                    </Button>
+                    </WizardButton>
                   </SignedOut>
                   <SignedIn>
                     {userMembership === "pro" ? (
-                      <Button className="w-full" asChild>
+                      <WizardButton variant="mystical" className="w-full" asChild>
                         <Link
                           href="/dashboard"
                           onClick={() => setMobileMenuOpen(false)}
                         >
-                          Dashboard
+                          Your Grimoire
                         </Link>
-                      </Button>
+                      </WizardButton>
                     ) : (
-                      <Button className="w-full gap-2" asChild>
+                      <WizardButton variant="gold" className="w-full gap-2" asChild>
                         <Link
                           href="/#pricing"
                           onClick={() => setMobileMenuOpen(false)}
                         >
                           <Sparkles className="h-4 w-4" />
-                          Upgrade
+                          Become Master Wizard
                         </Link>
-                      </Button>
+                      </WizardButton>
                     )}
                     <div className="flex justify-center pt-4">
                       <UserButton />

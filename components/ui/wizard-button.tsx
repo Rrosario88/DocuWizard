@@ -44,17 +44,27 @@ export interface WizardButtonProps
 
 const WizardButton = React.forwardRef<HTMLButtonElement, WizardButtonProps>(
   ({ className, variant, size, asChild = false, children, ...props }, ref) => {
-    const Comp = asChild ? Slot : "button"
+    if (asChild) {
+      return (
+        <Slot
+          className={cn(wizardButtonVariants({ variant, size, className }))}
+          ref={ref}
+          {...props}
+        >
+          {children}
+        </Slot>
+      )
+    }
+
     return (
-      <Comp
+      <button
         className={cn(wizardButtonVariants({ variant, size, className }))}
         ref={ref}
         {...props}
       >
         {children}
-        {/* Magical shimmer effect */}
         <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 pointer-events-none" />
-      </Comp>
+      </button>
     )
   }
 )
