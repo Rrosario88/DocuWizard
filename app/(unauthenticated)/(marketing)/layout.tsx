@@ -1,4 +1,5 @@
 import { RedirectToast } from "@/components/payments/redirect-toast"
+import { MagicalStars, ScrollStarBurst, MagicalParticles } from "@/components/effects/MagicalStars"
 import { Footer } from "./_components/footer"
 import { HeaderWrapper } from "./_components/header-wrapper"
 import { ScrollIndicator } from "./_components/scroll-indicator"
@@ -12,13 +13,21 @@ export default async function MarketingLayout({
 }) {
   return (
     <>
-      <SiteBanner />
-      <HeaderWrapper />
-      {children}
-      <Footer />
-      <StickyCTA />
-      <ScrollIndicator />
-      <RedirectToast />
+      {/* Magical Effects Layer */}
+      <MagicalStars />
+      <ScrollStarBurst />
+      <MagicalParticles />
+      
+      {/* Main Content */}
+      <div className="relative z-20">
+        <SiteBanner />
+        <HeaderWrapper />
+        {children}
+        <Footer />
+        <StickyCTA />
+        <ScrollIndicator />
+        <RedirectToast />
+      </div>
     </>
   )
 }
