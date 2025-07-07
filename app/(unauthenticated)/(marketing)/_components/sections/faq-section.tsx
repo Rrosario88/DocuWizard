@@ -12,34 +12,34 @@ import { SectionWrapper } from "./section-wrapper"
 
 const faqs = [
   {
-    question: "What's included in the template?",
+    question: "What magical powers does DocuWizard possess?",
     answer:
-      "Everything you need to build a production app: Next.js 15 with App Router, TypeScript, Tailwind CSS v4, shadcn/ui components, Clerk authentication, Stripe payments, PostgreSQL with Drizzle ORM, and PostHog analytics. All pre-configured and ready to use."
+      "DocuWizard harnesses the power of local Ollama AI models to analyze PDF documents. Upload any scroll, ask questions in natural language, and receive precise answers with source citations. All magic happens locally on your machine for complete privacy."
   },
   {
-    question: "How do I get started?",
+    question: "How do I begin my wizard training?",
     answer:
-      "Simply clone the repository from GitHub, copy the .env.example to .env.local, add your API keys, run npm install, and you're ready to go. The whole process takes less than 5 minutes."
+      "First, install Ollama on your machine and download AI familiars like llama2 or mistral. Then clone the DocuWizard grimoire from GitHub, configure your environment, and start casting document spells immediately."
   },
   {
-    question: "Is this really free?",
+    question: "Is the magic truly free?",
     answer:
-      "Yes! This template is 100% free and open source under the MIT license. You can use it for personal projects, commercial applications, or anything else. No hidden costs or premium features."
+      "Yes! DocuWizard is open source magic under the MIT license. The Apprentice Wizard path is completely free with 3 documents and 10 questions per month. Upgrade to Master Wizard for unlimited document sorcery."
   },
   {
-    question: "Can I customize everything?",
+    question: "Can I customize my spells and enchantments?",
     answer:
-      "Absolutely! You have full access to all the source code. Modify the components, change the styling, add or remove features - it's your codebase now. The template is designed to be a starting point that you can build upon."
+      "Absolutely! You have full control over your magical arsenal. Configure AI model settings, customize prompts, adjust temperature for spell casting, and even modify the medieval interface to match your wizard aesthetic."
   },
   {
-    question: "What about deployment?",
+    question: "What AI familiars can I summon?",
     answer:
-      "The template works with any hosting provider that supports Next.js. Deploy to Vercel, Netlify, Railway, or any other platform. Database can be hosted on Supabase, Neon, or any PostgreSQL provider."
+      "DocuWizard works with any Ollama-compatible model. Popular familiars include llama2, mistral, phi, codellama, and many others. Each familiar has unique strengths for different types of document analysis magic."
   },
   {
-    question: "How do I get help if I'm stuck?",
+    question: "How do I get help from fellow wizards?",
     answer:
-      "Open an issue on GitHub for bugs or feature requests. For general questions, the community is active in discussions. If you need dedicated support, consider becoming a sponsor or reaching out for custom development."
+      "Join our community of document sorcerers on GitHub for spells, enchantments, and troubleshooting. Open issues for bugs, share your magical discoveries, or reach out for advanced wizard training and custom spell development."
   }
 ]
 
@@ -59,23 +59,22 @@ export function FAQSection() {
       <div className="mx-auto max-w-7xl">
         <div className="mx-auto max-w-4xl">
           <motion.h2
-            className="text-foreground text-2xl leading-10 font-bold tracking-tight"
+            className="wizard-title text-2xl leading-10 font-bold tracking-tight"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
           >
-            Frequently asked questions
+            Wisdom from the Ancient Scrolls
           </motion.h2>
           <motion.p
-            className="text-muted-foreground mt-6 text-base leading-7"
+            className="wizard-body text-muted-foreground mt-6 text-base leading-7"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.1 }}
           >
-            Everything you need to know about the template. Can't find what
-            you're looking for? Open an issue on GitHub.
+            Everything you need to know about document sorcery. Can't find the wisdom you seek? Consult the community grimoire on GitHub.
           </motion.p>
           <dl className="mt-10 space-y-6">
             {faqs.map((faq, index) => (
@@ -91,7 +90,7 @@ export function FAQSection() {
                   onOpenChange={() => toggleItem(faq.question)}
                 >
                   <CollapsibleTrigger className="flex w-full items-start justify-between text-left">
-                    <span className="text-foreground text-base leading-7 font-semibold">
+                    <span className="wizard-heading text-foreground text-base leading-7 font-semibold">
                       {faq.question}
                     </span>
                     <motion.span
@@ -109,7 +108,7 @@ export function FAQSection() {
                   </CollapsibleTrigger>
                   <CollapsibleContent className="mt-2 pr-12">
                     <motion.p
-                      className="text-muted-foreground text-base leading-7"
+                      className="wizard-body text-muted-foreground text-base leading-7"
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
                       transition={{ duration: 0.3 }}

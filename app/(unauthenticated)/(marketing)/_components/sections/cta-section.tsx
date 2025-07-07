@@ -1,6 +1,7 @@
 "use client"
 
-import { Button } from "@/components/ui/button"
+import { WizardButton } from "@/components/ui/wizard-button"
+import { MagicStaff, SpellBook } from "@/components/icons/medieval-icons"
 import { motion } from "framer-motion"
 import { ArrowRight, Github } from "lucide-react"
 import Link from "next/link"
@@ -11,23 +12,22 @@ export function CTASection() {
     <SectionWrapper>
       <div className="mx-auto max-w-2xl text-center">
         <motion.h2
-          className="text-3xl font-bold tracking-tight sm:text-4xl"
+          className="wizard-title text-3xl font-bold tracking-tight sm:text-4xl"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          Ready to build something amazing?
+          Ready to Master Document Sorcery?
         </motion.h2>
         <motion.p
-          className="mx-auto mt-6 max-w-xl text-lg leading-8"
+          className="wizard-body mx-auto mt-6 max-w-xl text-lg leading-8"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.1 }}
         >
-          Stop wasting time on boilerplate. Clone this template and start
-          shipping your product today.
+          Join the ranks of document wizards. Clone the grimoire and start casting spells on your PDFs today.
         </motion.p>
         <motion.div
           className="mt-10 flex items-center justify-center gap-x-6"
@@ -36,30 +36,30 @@ export function CTASection() {
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.2 }}
         >
-          <Button
+          <WizardButton
             size="lg"
-            className="bg-brand-primary text-brand-primary-foreground hover:bg-brand-primary-hover"
+            variant="mystical"
             asChild
           >
             <Link
-              href="https://github.com/mckaywrigley/mckays-app-template"
+              href="https://github.com/Rrosario88/DocuWizard"
               target="_blank"
             >
-              <Github className="mr-2 h-4 w-4" />
-              Clone Template
+              <SpellBook className="mr-2 h-4 w-4" />
+              Clone Grimoire
               <ArrowRight className="ml-2 h-4 w-4" />
             </Link>
-          </Button>
-          <Button
+          </WizardButton>
+          <WizardButton
             size="lg"
-            variant="link"
-            className="text-brand-primary hover:text-brand-primary-hover"
+            variant="ghost"
             asChild
           >
             <Link href="#features">
-              View features <span aria-hidden="true">→</span>
+              <MagicStaff className="mr-2 h-4 w-4" />
+              View Powers <span aria-hidden="true">→</span>
             </Link>
-          </Button>
+          </WizardButton>
         </motion.div>
 
         {/* Stats */}
@@ -71,9 +71,9 @@ export function CTASection() {
           transition={{ duration: 0.5, delay: 0.3 }}
         >
           {[
-            { label: "Time to First Deploy", value: "< 5 min" },
-            { label: "Production Ready", value: "100%" },
-            { label: "License", value: "MIT" }
+            { label: "Time to First Spell", value: "< 5 min" },
+            { label: "Magic Ready", value: "100%" },
+            { label: "Grimoire License", value: "MIT" }
           ].map((stat, index) => (
             <motion.div
               key={stat.label}
@@ -82,10 +82,10 @@ export function CTASection() {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.4 + index * 0.1 }}
             >
-              <dt className="text-muted-foreground text-sm font-medium">
+              <dt className="wizard-body text-muted-foreground text-sm font-medium">
                 {stat.label}
               </dt>
-              <dd className="from-brand-primary to-brand-secondary mt-2 bg-gradient-to-r bg-clip-text text-2xl font-bold text-transparent">
+              <dd className="wizard-title mt-2 text-2xl font-bold">
                 {stat.value}
               </dd>
             </motion.div>

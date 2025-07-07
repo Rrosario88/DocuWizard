@@ -1,44 +1,47 @@
 "use client"
 
 import { PricingButton } from "@/components/payments/pricing-button"
-import { Button } from "@/components/ui/button"
+import { WizardButton } from "@/components/ui/wizard-button"
+import { SpellBook, Sparkles } from "@/components/icons/medieval-icons"
 import { motion } from "framer-motion"
-import { Check, CreditCard, Zap } from "lucide-react"
+import { Check } from "lucide-react"
 import { SectionWrapper } from "./section-wrapper"
 
 const pricing = [
   {
-    name: "Pro Monthly",
-    price: "$19",
-    period: "/month",
-    description: "Perfect for growing businesses",
+    name: "Apprentice Wizard",
+    price: "Free",
+    period: "",
+    description: "Perfect for learning the ancient arts",
     features: [
-      "Unlimited projects",
-      "Advanced analytics",
-      "Priority support",
-      "Custom integrations",
-      "API access",
-      "Export data"
+      "3 documents in your grimoire",
+      "Basic spell casting (10 questions/month)",
+      "Access to common AI familiars",
+      "Scroll analysis magic",
+      "Community spell book",
+      "Basic enchantments"
     ],
-    paymentLink: process.env.NEXT_PUBLIC_STRIPE_PAYMENT_LINK_MONTHLY,
-    icon: CreditCard,
+    paymentLink: null,
+    icon: SpellBook,
     highlight: false
   },
   {
-    name: "Pro Yearly",
-    price: "$190",
-    period: "/year",
-    description: "Best value - save $38 per year",
+    name: "Master Wizard",
+    price: "$9.99",
+    period: "/month",
+    description: "Unlock the full power of document sorcery",
     features: [
-      "Everything in monthly",
-      "2 months free",
-      "Early access to features",
-      "Custom onboarding",
-      "Dedicated account manager",
-      "99.9% uptime SLA"
+      "Unlimited documents in grimoire",
+      "Unlimited spell casting",
+      "Access to all AI familiars",
+      "Advanced document enchantments",
+      "Priority magical support",
+      "Export conversation scrolls",
+      "Custom spell configurations",
+      "Early access to new magic"
     ],
-    paymentLink: process.env.NEXT_PUBLIC_STRIPE_PAYMENT_LINK_YEARLY,
-    icon: Zap,
+    paymentLink: process.env.NEXT_PUBLIC_STRIPE_PAYMENT_LINK_MONTHLY,
+    icon: Sparkles,
     highlight: true
   }
 ]
@@ -49,22 +52,22 @@ export function PricingSection() {
       <div className="mx-auto max-w-7xl">
         <div className="mx-auto max-w-2xl text-center">
           <motion.h2
-            className="text-foreground text-3xl font-bold tracking-tight sm:text-4xl"
+            className="wizard-title text-3xl font-bold tracking-tight sm:text-4xl"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
           >
-            Simple, transparent pricing
+            Choose Your Magical Path
           </motion.h2>
           <motion.p
-            className="text-muted-foreground mt-4 text-lg leading-8"
+            className="wizard-body text-muted-foreground mt-4 text-lg leading-8"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.1 }}
           >
-            Choose the plan that fits your needs. Cancel anytime.
+            Begin as an apprentice or unlock the full power of document sorcery. Your magical journey awaits.
           </motion.p>
         </div>
 
@@ -93,8 +96,8 @@ export function PricingSection() {
                   viewport={{ once: true }}
                   transition={{ duration: 0.4, delay: 0.3 }}
                 >
-                  <span className="bg-primary text-primary-foreground inline-flex items-center rounded-full px-4 py-1 text-xs font-semibold">
-                    BEST VALUE
+                  <span className="bg-wizard-gold text-wizard-ink inline-flex items-center rounded-full px-4 py-1 text-xs font-semibold wizard-body">
+                    ⭐ MOST POWERFUL
                   </span>
                 </motion.div>
               )}
@@ -106,7 +109,7 @@ export function PricingSection() {
                   }`}
                 />
                 <h3
-                  className={`text-lg leading-8 font-semibold ${
+                  className={`wizard-heading text-lg leading-8 font-semibold ${
                     tier.highlight
                       ? "text-primary-foreground"
                       : "text-foreground"
@@ -117,7 +120,7 @@ export function PricingSection() {
               </div>
 
               <p
-                className={`mt-4 text-sm leading-6 ${
+                className={`wizard-body mt-4 text-sm leading-6 ${
                   tier.highlight
                     ? "text-primary-foreground/80"
                     : "text-muted-foreground"
@@ -179,20 +182,16 @@ export function PricingSection() {
                   }`}
                   variant={tier.highlight ? "default" : "outline"}
                 >
-                  Get started
+                  {tier.highlight ? "Ascend to Master" : "Begin Quest"}
                 </PricingButton>
               ) : (
-                <Button
-                  className={`mt-8 w-full ${
-                    tier.highlight
-                      ? "bg-primary-foreground text-primary hover:bg-primary-foreground/90"
-                      : ""
-                  }`}
-                  variant={tier.highlight ? "default" : "outline"}
+                <WizardButton
+                  className="mt-8 w-full"
+                  variant="parchment"
                   disabled
                 >
-                  Configure payment link
-                </Button>
+                  Start Your Journey
+                </WizardButton>
               )}
             </motion.div>
           ))}
@@ -205,8 +204,8 @@ export function PricingSection() {
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.3 }}
         >
-          <p className="text-muted-foreground text-sm">
-            All plans include a 30-day money-back guarantee. No questions asked.
+          <p className="wizard-body text-muted-foreground text-sm">
+            All magical paths include a 30-day satisfaction guarantee. If the magic doesn't work for you, we'll return your gold.
           </p>
         </motion.div>
       </div>

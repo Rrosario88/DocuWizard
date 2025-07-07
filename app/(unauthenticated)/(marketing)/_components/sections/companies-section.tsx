@@ -4,20 +4,20 @@ import { motion } from "framer-motion"
 import { SectionWrapper } from "./section-wrapper"
 
 const stats = [
-  { label: "GitHub Stars", value: "500+" },
-  { label: "Active Projects", value: "1000+" },
-  { label: "Contributors", value: "50+" }
+  { label: "Documents Analyzed", value: "∞" },
+  { label: "Spells Cast", value: "🔮" },
+  { label: "Wizards Trained", value: "⭐" }
 ]
 
 const features = [
-  "Next.js",
-  "TypeScript",
-  "Tailwind CSS",
-  "Clerk",
-  "Stripe",
-  "PostgreSQL",
-  "Drizzle ORM",
-  "PostHog"
+  "Ollama AI",
+  "Local Magic",
+  "PDF Sorcery",
+  "Document Wisdom",
+  "Privacy Fortress",
+  "Medieval UI",
+  "Spell Casting",
+  "AI Familiars"
 ]
 
 export function CompaniesSection() {
@@ -31,11 +31,11 @@ export function CompaniesSection() {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <h2 className="text-foreground text-3xl font-bold tracking-tight sm:text-4xl">
-            Built with the best
+          <h2 className="wizard-title text-3xl font-bold tracking-tight sm:text-4xl">
+            Forged with Ancient Magic
           </h2>
-          <p className="text-muted-foreground mt-4 text-lg leading-8">
-            Trusted technologies that power thousands of production applications
+          <p className="wizard-body text-muted-foreground mt-4 text-lg leading-8">
+            Mystical powers and enchantments that bring your documents to life
           </p>
         </motion.div>
 
@@ -57,7 +57,7 @@ export function CompaniesSection() {
               {[...features, ...features].map((feature, index) => (
                 <div
                   key={`${feature}-${index}`}
-                  className="bg-muted text-foreground flex items-center justify-center rounded-lg px-6 py-3 text-sm font-semibold whitespace-nowrap"
+                  className="bg-wizard-parchment text-wizard-ink flex items-center justify-center rounded-lg px-6 py-3 text-sm font-semibold whitespace-nowrap wizard-body border border-wizard-gold/20"
                 >
                   {feature}
                 </div>
@@ -83,10 +83,10 @@ export function CompaniesSection() {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.3 + index * 0.1 }}
             >
-              <dt className="text-muted-foreground text-base leading-7">
+              <dt className="wizard-body text-muted-foreground text-base leading-7">
                 {stat.label}
               </dt>
-              <dd className="text-foreground order-first text-3xl font-semibold tracking-tight sm:text-5xl">
+              <dd className="wizard-title order-first text-3xl font-semibold tracking-tight sm:text-5xl">
                 <motion.span
                   initial={{ opacity: 0, scale: 0.5 }}
                   whileInView={{ opacity: 1, scale: 1 }}

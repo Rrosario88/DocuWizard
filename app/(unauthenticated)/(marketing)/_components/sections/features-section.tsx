@@ -1,52 +1,52 @@
 "use client"
 
 import { motion } from "framer-motion"
-import {
-  BarChart,
-  Code2,
-  CreditCard,
-  Database,
-  Palette,
-  Shield
-} from "lucide-react"
+import { 
+  MagicStaff, 
+  CrystalBall, 
+  SpellBook, 
+  Sparkles, 
+  PotionBottle, 
+  WizardHat 
+} from "@/components/icons/medieval-icons"
 import { SectionWrapper } from "./section-wrapper"
 
 const features = [
   {
-    name: "Authentication Ready",
+    name: "Local AI Familiars",
     description:
-      "Clerk authentication pre-configured with protected routes, user management, and session handling.",
-    icon: Shield
+      "Harness the power of Ollama models running on your own machine. Choose from llama2, mistral, phi, and more magical AI companions.",
+    icon: MagicStaff
   },
   {
-    name: "Payments Integration",
+    name: "Crystal Ball Insights",
     description:
-      "Stripe integration with webhook support, subscription management, and checkout flows.",
-    icon: CreditCard
+      "Ask any question about your documents and receive precise answers with source citations. Your personal oracle for document wisdom.",
+    icon: CrystalBall
   },
   {
-    name: "Database Setup",
+    name: "Grimoire Management",
     description:
-      "PostgreSQL with Drizzle ORM configured and ready. Includes migrations and type-safe queries.",
-    icon: Database
+      "Upload and organize your PDF scrolls in a beautiful, searchable library. Your documents become an enchanted collection.",
+    icon: SpellBook
   },
   {
-    name: "Modern UI Components",
+    name: "Mystical Interface",
     description:
-      "Beautiful, accessible components with shadcn/ui. Dark mode support and Tailwind CSS v4.",
-    icon: Palette
+      "Beautiful medieval wizard-themed UI with magical animations, parchment textures, and enchanting visual effects.",
+    icon: Sparkles
   },
   {
-    name: "TypeScript First",
+    name: "Privacy Fortress",
     description:
-      "Full TypeScript support with strict mode, path aliases, and type safety throughout.",
-    icon: Code2
+      "All magic happens locally on your machine. Your documents never leave your castle, ensuring complete privacy and security.",
+    icon: WizardHat
   },
   {
-    name: "Analytics Built-in",
+    name: "Spell Customization",
     description:
-      "PostHog analytics integration for tracking user behavior and product metrics.",
-    icon: BarChart
+      "Configure your AI familiars with custom prompts, temperature settings, and model preferences for personalized document magic.",
+    icon: PotionBottle
   }
 ]
 
@@ -59,32 +59,31 @@ export function FeaturesSection() {
         <div className="mx-auto max-w-2xl text-center">
           <motion.h2
             id="features-heading"
-            className="text-primary text-base leading-7 font-semibold"
+            className="text-primary text-base leading-7 font-semibold wizard-body"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
           >
-            Everything Included
+            Ancient Powers Unleashed
           </motion.h2>
           <motion.p
-            className="text-foreground mt-2 text-3xl font-bold tracking-tight sm:text-4xl"
+            className="wizard-title mt-2 text-3xl font-bold tracking-tight sm:text-4xl"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.1 }}
           >
-            Start with a complete foundation
+            Master the Art of Document Sorcery
           </motion.p>
           <motion.p
-            className="text-muted-foreground mt-6 text-lg leading-8"
+            className="wizard-body text-muted-foreground mt-6 text-lg leading-8"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
-            No more setup headaches. Clone the repo and start building your
-            product immediately.
+            Transform any PDF into an intelligent conversation partner. Unlock the secrets hidden within your documents using the power of local AI magic.
           </motion.p>
         </div>
 
@@ -117,10 +116,10 @@ export function FeaturesSection() {
                   />
                 </motion.div>
 
-                <dt className="text-foreground mt-4 flex items-center gap-x-3 text-base leading-7 font-semibold">
+                <dt className="wizard-heading text-foreground mt-4 flex items-center gap-x-3 text-base leading-7 font-semibold">
                   {feature.name}
                   <motion.div
-                    className="from-primary/50 h-px flex-1 bg-gradient-to-r to-transparent"
+                    className="from-wizard-primary/50 h-px flex-1 bg-gradient-to-r to-transparent"
                     initial={{ scaleX: 0 }}
                     whileInView={{ scaleX: 1 }}
                     viewport={{ once: true }}
@@ -129,7 +128,7 @@ export function FeaturesSection() {
                   />
                 </dt>
 
-                <dd className="text-muted-foreground mt-4 flex flex-auto flex-col text-base leading-7">
+                <dd className="wizard-body text-muted-foreground mt-4 flex flex-auto flex-col text-base leading-7">
                   <p className="flex-auto">{feature.description}</p>
                 </dd>
 
